@@ -3,479 +3,166 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cut">
-<title>hai devi</title>
-<meta name="theme-color" content="#0b0d10">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%225%22 fill=%22%233ccf7e%22/%3E%3C/svg%3E">
-<meta name="description" content="pesan kecil, versi agak niat">
+<title>untuk devi</title>
+<meta name="theme-color" content="#fbf6f0">
+<meta name="description" content="surat kecil">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect x=%222%22 y=%224%22 width=%2212%22 height=%229%22 rx=%222%22 fill=%22%23e8a598%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Caveat:wght@500;600&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0d10;--panel:rgba(18,21,26,.86);--panel2:#161a20;--line:#252b33;--text:#d8dee6;--muted:#7d8792;--acc:#3ccf7e;--acc-d:rgba(60,207,126,.12);--top:44px;--dock:68px}
-body.violet{--acc:#9b8cff;--acc-d:rgba(155,140,255,.13)}
+:root{--bg:#fbf6f0;--ink:#4a3f45;--soft:#8b7e84;--peach:#f3c9b8;--pink:#f6d6dc;--lilac:#ddd3f0;--rose:#d98a8a;--paper:#fffdfa}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font:14px/1.55 Inter,system-ui,sans-serif}
+html,body{min-height:100%;background:var(--bg);color:var(--ink);font:16px/1.6 Nunito,system-ui,sans-serif}
+body{overflow-x:hidden}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
-#fx{position:fixed;inset:0;z-index:0;transition:opacity .5s}
-#grid{position:fixed;inset:0;z-index:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:22px 22px;transition:opacity .5s;-webkit-mask:radial-gradient(ellipse at 50% 40%,#000 30%,transparent 80%);mask:radial-gradient(ellipse at 50% 40%,#000 30%,transparent 80%)}
-body.nofx #fx,body.nogrid #grid{opacity:0}
-.glow{position:fixed;width:70vmax;height:70vmax;left:50%;top:-30vmax;transform:translateX(-50%);background:radial-gradient(circle,var(--acc-d),transparent 60%);z-index:0;pointer-events:none}
+.serif{font-family:Fraunces,Georgia,serif}
+.hand{font-family:Caveat,cursive}
 
-/* boot */
-#boot{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px;transition:opacity .6s}
-#boot.off{opacity:0;pointer-events:none}
-#bootlog{width:min(460px,100%);font:12.5px/1.8 'JetBrains Mono',monospace;color:var(--muted);white-space:pre-wrap}
-#bootlog .k{color:var(--acc)}
-#boot small{position:absolute;bottom:24px;font:11px 'JetBrains Mono',monospace;color:#4d555f}
+/* drifting shapes */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg span{position:absolute;border-radius:50%;filter:blur(2px);opacity:.55;animation:drift 22s ease-in-out infinite alternate}
+.bg .a{width:260px;height:260px;background:var(--pink);top:-70px;left:-80px;filter:blur(40px)}
+.bg .b{width:300px;height:300px;background:var(--lilac);bottom:-90px;right:-90px;filter:blur(46px);animation-delay:-8s}
+.bg .c{width:180px;height:180px;background:var(--peach);top:45%;left:60%;filter:blur(44px);opacity:.4;animation-delay:-14s}
+.bg i{position:absolute;border:1.5px solid rgba(217,138,138,.28);border-radius:50%;animation:float 14s ease-in-out infinite alternate}
+.bg i:nth-of-type(1){width:22px;height:22px;top:16%;left:12%}
+.bg i:nth-of-type(2){width:12px;height:12px;top:28%;right:14%;border-color:rgba(150,130,200,.35);animation-delay:-5s}
+.bg i:nth-of-type(3){width:16px;height:16px;bottom:22%;left:18%;border-color:rgba(150,130,200,.3);animation-delay:-9s}
+.bg i:nth-of-type(4){width:9px;height:9px;bottom:12%;right:28%;animation-delay:-3s}
+@keyframes drift{to{transform:translate(40px,30px) scale(1.1)}}
+@keyframes float{to{transform:translateY(-26px) rotate(40deg)}}
 
-/* topbar */
-#top{position:fixed;top:0;left:0;right:0;height:var(--top);z-index:50;display:flex;align-items:center;gap:12px;padding:0 14px;background:rgba(11,13,16,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);font-size:12.5px}
-#top .brand{font-weight:600;letter-spacing:-.01em}
-#top .brand span{color:var(--acc)}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 3px var(--acc-d);display:inline-block}
-#top .sp{flex:1}
-#prog{display:flex;align-items:center;gap:8px;padding:5px 10px;border:1px solid var(--line);border-radius:99px;color:var(--muted);font:11.5px 'JetBrains Mono',monospace}
-#prog .seg{display:flex;gap:3px}
-#prog .seg i{width:12px;height:4px;border-radius:2px;background:var(--line);transition:background .4s}
-#prog .seg i.on{background:var(--acc)}
-#clock{font:11.5px 'JetBrains Mono',monospace;color:var(--muted)}
+main{position:relative;z-index:1}
 
-/* desk */
-#desk{position:fixed;top:var(--top);left:0;right:0;bottom:0;z-index:1}
-#icons{position:absolute;top:18px;left:18px;display:grid;grid-template-columns:repeat(2,84px);gap:6px}
-.ico{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 4px;border-radius:12px;font-size:11.5px;color:var(--text);transition:background .2s}
-.ico:hover{background:rgba(255,255,255,.05)}
-.ico svg,.dk svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.ico .bx{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--panel2);border:1px solid var(--line);color:var(--acc);position:relative}
-.ico .bx b{position:absolute;top:-3px;right:-3px;width:9px;height:9px;border-radius:50%;background:var(--acc);border:2px solid var(--bg);display:none}
-.ico.new .bx b{display:block}
-.ico .ds{display:none}
-#hello{position:absolute;right:28px;top:22px;width:300px;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--panel);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-#hello h1{font-size:26px;font-weight:600;letter-spacing:-.03em;line-height:1.15;margin-bottom:6px}
-#hello p{color:var(--muted);font-size:13px}
-#hello .hint{margin-top:12px;font:11.5px 'JetBrains Mono',monospace;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px}
-#hello .hint b{color:var(--acc);font-weight:500}
+/* envelope stage */
+#stage{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;transition:opacity .6s,transform .6s}
+#stage.gone{opacity:0;transform:translateY(-16px);pointer-events:none;position:absolute;inset:0}
+.to{font-size:30px;color:var(--rose);margin-bottom:22px;transform:rotate(-3deg)}
+.env{position:relative;width:260px;height:170px;animation:bob 4s ease-in-out infinite;cursor:pointer;perspective:800px}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.env .back{position:absolute;inset:0;background:#f1d4c6;border-radius:10px;box-shadow:0 18px 40px rgba(170,120,110,.22)}
+.env .letter{position:absolute;left:14px;right:14px;top:12px;height:140px;background:var(--paper);border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:transform .7s cubic-bezier(.3,.7,.2,1) .25s;display:flex;align-items:flex-start;justify-content:center;padding-top:22px}
+.env .letter b{font-family:Caveat,cursive;font-weight:500;font-size:22px;color:var(--soft)}
+.env .front{position:absolute;inset:0;border-radius:10px;pointer-events:none;z-index:2;background:linear-gradient(160deg,#f7e2d7,#f2d5c8);clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%)}
+.env .flap{position:absolute;top:0;left:0;right:0;height:100px;transform-origin:top;transition:transform .5s ease,z-index 0s .25s;z-index:3}
+.env .flap::before{content:"";position:absolute;inset:0;background:#eec8b8;clip-path:polygon(0 0,100% 0,50% 100%);border-radius:10px 10px 0 0}
+.env .seal{position:absolute;left:50%;top:84px;width:30px;height:30px;margin-left:-15px;border-radius:50%;background:var(--rose);z-index:4;box-shadow:0 2px 6px rgba(150,80,80,.3);transition:opacity .3s;display:grid;place-items:center}
+.env .seal::after{content:"";width:10px;height:10px;border:1.5px solid rgba(255,255,255,.75);border-radius:50%}
+.env.open .seal{opacity:0}
+.env.open .flap{transform:rotateX(180deg);z-index:0}
+.env.open .letter{transform:translateY(-70px)}
+.hint{margin-top:28px;font-size:13px;color:var(--soft);letter-spacing:.02em;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.45}}
 
-/* dock */
-#dock{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:60;display:flex;gap:4px;padding:6px;border-radius:16px;background:rgba(18,21,26,.8);border:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.dk{position:relative;width:44px;height:44px;border-radius:11px;display:grid;place-items:center;color:var(--muted);transition:background .2s,color .2s}
-.dk:hover,.dk.act{background:rgba(255,255,255,.06);color:var(--text)}
-.dk.open::after{content:"";position:absolute;bottom:3px;width:4px;height:4px;border-radius:50%;background:var(--acc)}
-.dk .tt{position:absolute;bottom:52px;padding:3px 8px;border-radius:6px;background:#000;font-size:11px;white-space:nowrap;opacity:0;pointer-events:none;transition:.15s}
-.dk:hover .tt{opacity:1}
-#dkHome{display:none}
+/* content */
+#content{display:none;max-width:760px;margin:0 auto;padding:40px 20px 60px}
+#content.show{display:block}
+.fade{opacity:0;transform:translateY(14px);animation:up .7s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+.letterCard{background:var(--paper);border-radius:20px;padding:30px 26px 26px;box-shadow:0 1px 0 rgba(0,0,0,.02),0 20px 50px rgba(160,120,120,.13);position:relative}
+.letterCard::before{content:"";position:absolute;top:-10px;left:50%;width:84px;height:22px;margin-left:-42px;background:rgba(221,211,240,.75);transform:rotate(-2deg);border-radius:3px}
+.letterCard .hi{font-family:Caveat,cursive;font-size:34px;color:var(--rose);line-height:1}
+.letterCard h1{font-family:Fraunces,serif;font-weight:500;font-size:40px;letter-spacing:-.02em;margin:8px 0 10px;line-height:1.1}
+.letterCard p{color:var(--ink);font-size:17px}
+.letterCard .sig{margin-top:16px;font-family:Caveat,cursive;font-size:22px;color:var(--soft);text-align:right}
 
-/* windows */
-.win{position:absolute;display:none;flex-direction:column;min-width:280px;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 24px 60px rgba(0,0,0,.5);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);overflow:hidden}
-.win.open{display:flex;animation:pop .22s cubic-bezier(.2,.8,.2,1)}
-.win.focus{border-color:#323a44}
-@keyframes pop{from{opacity:0;transform:scale(.97) translateY(6px)}}
-.tb{height:38px;flex:0 0 38px;display:flex;align-items:center;gap:8px;padding:0 8px 0 12px;border-bottom:1px solid var(--line);cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none}
-.tb:active{cursor:grabbing}
-.tb .t{font:12px 'JetBrains Mono',monospace;color:var(--muted);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tb .t b{color:var(--text);font-weight:500}
-.tb .x{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;color:var(--muted)}
-.tb .x:hover{background:rgba(255,255,255,.07);color:var(--text)}
-.tb .x svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round}
-.bd{padding:16px;overflow:auto;flex:1;-webkit-overflow-scrolling:touch}
-.lbl{font:10.5px 'JetBrains Mono',monospace;color:var(--muted);text-transform:lowercase;letter-spacing:.04em;margin-bottom:6px}
-.big{font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1.1}
-.muted{color:var(--muted)}
-.acc{color:var(--acc)}
-.card{border:1px solid var(--line);border-radius:10px;padding:12px;background:rgba(255,255,255,.02)}
-.row{display:flex;gap:10px}
-.row>*{flex:1}
-.kv{display:flex;justify-content:space-between;font:12px 'JetBrains Mono',monospace;padding:7px 0;border-bottom:1px solid var(--line)}
-.kv:last-child{border:0}
-.kv span:first-child{color:var(--muted)}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:9px;border:1px solid var(--line);background:var(--panel2);font-size:13px;transition:border-color .2s,background .2s}
-.btn:hover{border-color:#3a434e}
-.btn.pri{background:var(--acc);border-color:var(--acc);color:#07140c;font-weight:600}
-body.violet .btn.pri{color:#0f0b24}
+.sec{margin:34px 4px 14px;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.sec h2{font-family:Fraunces,serif;font-weight:400;font-size:20px}
+.sec span{font-size:13px;color:var(--soft)}
+.notes{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.note{perspective:900px;height:170px;cursor:pointer}
+.note:nth-child(3){grid-column:1 / -1;max-width:calc(50% - 8px);justify-self:center;width:100%}
+.note .in{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.3,.7,.2,1);transform-style:preserve-3d}
+.note.flip .in{transform:rotateY(180deg)}
+.note .f,.note .k{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:18px 16px;display:flex;flex-direction:column;box-shadow:0 10px 26px rgba(150,110,110,.14)}
+.note .f{justify-content:space-between}
+.note .f .lab{font-family:Caveat,cursive;font-size:26px;line-height:1.1}
+.note .f small{font-size:12px;color:rgba(74,63,69,.55)}
+.note .k{transform:rotateY(180deg);background:var(--paper);justify-content:center;font-size:15px;line-height:1.5}
+.note .k em{font-style:normal;color:var(--rose)}
+.note:nth-child(1){rotate:-2.5deg}.note:nth-child(1) .f{background:var(--pink)}
+.note:nth-child(2){rotate:2deg}.note:nth-child(2) .f{background:var(--lilac)}
+.note:nth-child(3){rotate:-1.5deg}.note:nth-child(3) .f{background:#f8e3c8}
+.note:active .in{scale:.98}
 
-/* terminal */
-#w-term .bd{padding:0;display:flex;flex-direction:column;background:rgba(6,8,10,.6)}
-#out{flex:1;overflow:auto;padding:12px 14px;font:12.5px/1.65 'JetBrains Mono',monospace;white-space:pre-wrap;word-break:break-word}
-#out .p{color:var(--acc)}#out .m{color:var(--muted)}#out .e{color:#ff7b72}
-.inrow{display:flex;align-items:center;gap:8px;padding:8px 14px;border-top:1px solid var(--line);font:12.5px 'JetBrains Mono',monospace}
-.inrow .p{color:var(--acc);white-space:nowrap}
-#cmd{flex:1;min-width:0;background:none;border:0;outline:0;color:var(--text);font:inherit;font-size:16px;caret-color:var(--acc)}
-@media(min-width:761px){#cmd{font-size:12.5px}}
-.chips{display:flex;gap:6px;padding:8px 12px 10px;overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--line)}
-.chips::-webkit-scrollbar{display:none}
-.chip{flex:0 0 auto;padding:5px 10px;border-radius:99px;border:1px solid var(--line);font:11.5px 'JetBrains Mono',monospace;color:var(--muted);transition:.15s}
-.chip:hover{color:var(--text);border-color:#3a434e}
-.chip.used{color:var(--acc);border-color:var(--acc-d)}
+.fin{margin-top:34px;text-align:center}
+.btn{padding:13px 26px;border-radius:99px;background:var(--ink);color:var(--paper);font-weight:600;font-size:15px;box-shadow:0 10px 24px rgba(74,63,69,.2);transition:transform .2s,background .3s}
+.btn:active{transform:scale(.97)}
+.btn.done{background:#e9dfe3;color:var(--soft);box-shadow:none;cursor:default}
+#thanks{margin-top:18px;font-family:Caveat,cursive;font-size:26px;color:var(--rose);min-height:40px;opacity:0;transform:translateY(8px);transition:.6s}
+#thanks.show{opacity:1;transform:none}
+.again{margin-top:26px;font-size:13px;color:var(--soft);text-decoration:underline;text-underline-offset:3px}
+footer{text-align:center;font-size:12px;color:rgba(139,126,132,.7);margin-top:30px}
 
-/* log timeline */
-.tl{position:relative;padding-left:20px;margin-top:14px}
-.tl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line)}
-.ev{position:relative;padding:0 0 14px;opacity:0;transform:translateX(-6px);transition:.4s}
-.ev.in{opacity:1;transform:none}
-.ev::before{content:"";position:absolute;left:-19px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--muted)}
-.ev.g::before{border-color:var(--acc);background:var(--acc)}
-.ev.o::before{border-style:dashed}
-.ev .ts{font:11px 'JetBrains Mono',monospace;color:var(--muted)}
-.ev .tx{font-size:13.5px}
-.bar{height:26px;border-radius:7px;display:flex;overflow:hidden;border:1px solid var(--line);font:10.5px 'JetBrains Mono',monospace}
-.bar div{display:grid;place-items:center}
-.bar .on{background:var(--acc-d);color:var(--acc)}
-.bar .off{flex:2.4;background:repeating-linear-gradient(45deg,transparent 0 6px,rgba(255,255,255,.04) 6px 12px);color:var(--muted)}
-
-/* agent */
-.pipe{display:flex;align-items:center;gap:6px;margin:14px 0}
-.node{flex:1;text-align:center;padding:10px 4px;border:1px solid var(--line);border-radius:9px;font:11px 'JetBrains Mono',monospace;color:var(--muted);transition:.3s}
-.node.on{border-color:var(--acc);color:var(--acc);background:var(--acc-d)}
-.arr{color:#3a434e;font-size:11px}
-.code{font:12px/1.6 'JetBrains Mono',monospace;background:rgba(0,0,0,.3);border:1px solid var(--line);border-radius:9px;padding:10px 12px;white-space:pre-wrap;color:#b9c2cc}
-.code .c{color:var(--muted)}
-#agOut{min-height:20px;font:12px 'JetBrains Mono',monospace;color:var(--muted);margin-top:10px}
-
-/* game */
-#pad{height:150px;border-radius:12px;border:1px solid var(--line);display:grid;place-items:center;text-align:center;font:13px 'JetBrains Mono',monospace;color:var(--muted);user-select:none;-webkit-user-select:none;transition:background .15s,border-color .15s;cursor:pointer;touch-action:manipulation}
-#pad.wait{background:rgba(255,255,255,.02)}
-#pad.go{background:var(--acc);border-color:var(--acc);color:#07140c}
-body.violet #pad.go{color:#0f0b24}
-
-/* settings */
-.tg{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line)}
-.tg:last-child{border:0}
-.tg small{display:block;color:var(--muted);font-size:12px}
-.sw{width:38px;height:22px;border-radius:99px;background:var(--line);position:relative;transition:background .2s;flex:0 0 38px}
-.sw::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#cfd6de;transition:transform .2s}
-.sw.on{background:var(--acc)}.sw.on::after{transform:translateX(16px);background:#fff}
-
-/* message */
-.slot{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}
-.slot:last-child{border:0}
-.slot .n{font:11px 'JetBrains Mono',monospace;color:var(--muted);width:22px;padding-top:2px}
-.slot .v{flex:1}
-.slot.lock .v{color:var(--muted);font:12px 'JetBrains Mono',monospace}
-.slot.ok .n{color:var(--acc)}
-#final{display:none}
-#finalTx{font-size:17px;line-height:1.6;min-height:120px;white-space:pre-wrap}
-#finalTx .cur{display:inline-block;width:8px;height:17px;background:var(--acc);vertical-align:-3px;animation:bl 1s steps(1) infinite}
-@keyframes bl{50%{opacity:0}}
-
-/* toast */
-#toasts{position:fixed;right:16px;bottom:16px;z-index:90;display:flex;flex-direction:column;gap:8px;align-items:flex-end;pointer-events:none}
-.toast{pointer-events:auto;max-width:320px;padding:10px 14px;border-radius:10px;background:#11151a;border:1px solid var(--line);border-left:2px solid var(--acc);font-size:12.5px;box-shadow:0 10px 30px rgba(0,0,0,.4);animation:tin .3s cubic-bezier(.2,.8,.2,1);transition:opacity .4s,transform .4s}
-.toast .lbl{margin:0 0 2px}
-.toast.out{opacity:0;transform:translateY(6px)}
-@keyframes tin{from{opacity:0;transform:translateY(8px)}}
-
-/* mobile */
-@media(max-width:760px){
- #top{padding:0 12px;padding-top:env(safe-area-inset-top)}
- #clock{display:none}
- #desk{bottom:var(--dock);overflow:auto;-webkit-overflow-scrolling:touch}
- #hello{position:static;width:auto;margin:16px 16px 4px}
- #icons{position:static;margin:12px 16px 24px;grid-template-columns:1fr 1fr;gap:10px}
- .ico{flex-direction:row;align-items:center;gap:10px;padding:12px;border:1px solid var(--line);background:var(--panel);text-align:left}
- .ico .bx{width:38px;height:38px;flex:0 0 38px}
- .ico .nm{font-size:13px;font-weight:500;display:block}
- .ico .ds{display:block;font-size:11px;color:var(--muted);line-height:1.3}
- #dock{left:0;right:0;bottom:0;transform:none;border-radius:0;border-width:1px 0 0;justify-content:space-around;padding:6px 6px calc(6px + env(safe-area-inset-bottom));height:auto}
- .dk{width:40px;height:40px}
- .dk .tt{display:none}
- #dkHome{display:grid}
- .win{position:fixed!important;left:0!important;right:0;top:var(--top)!important;bottom:var(--dock);width:auto!important;height:auto!important;min-width:0;border-radius:14px 14px 0 0;border-width:1px 0 0;transform:translateY(102%);transition:transform .32s cubic-bezier(.2,.8,.2,1);display:flex!important;visibility:hidden;animation:none!important}
- .win.open.sheet{transform:none;visibility:visible}
- .win.open:not(.sheet){visibility:hidden}
- .tb{cursor:default}
- .tb::before{content:"";position:absolute;left:50%;top:5px;width:34px;height:3px;border-radius:2px;background:#333a43;transform:translateX(-50%)}
- #toasts{left:12px;right:12px;bottom:auto;top:calc(var(--top) + 10px);align-items:stretch}
- .toast{max-width:none}
+@media(min-width:820px){
+ #content{padding-top:70px}
+ .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:start}
+ .sec{margin-top:6px}
+ .note{height:180px}
+ .letterCard h1{font-size:46px}
 }
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.fade{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<canvas id="fx"></canvas><div id="grid"></div><div class="glow"></div>
-
-<div id="boot"><div id="bootlog"></div><small>tap buat skip</small></div>
-
-<header id="top">
-  <span class="dot"></span><span class="brand">hai<span>.</span>devi</span>
-  <span class="sp"></span>
-  <button id="prog" title="potongan pesan"><span class="seg"><i></i><i></i><i></i><i></i></span><span id="progN">0/4</span></button>
-  <span id="clock"></span>
-</header>
-
-<main id="desk">
-  <section id="hello">
-    <div class="lbl">readme</div>
-    <h1>halo devi.</h1>
-    <p>ini bukan web penting kok, cuma cara yang agak niat buat bales chat. buka apa aja, urutannya bebas.</p>
-    <div class="hint">ada <b>4 potongan pesan</b> yang kesebar di app-app ini. kumpulin semua, nanti kebuka sendiri.</div>
+<div class="bg"><span class="a"></span><span class="b"></span><span class="c"></span><i></i><i></i><i></i><i></i></div>
+<main>
+  <section id="stage">
+    <div class="to hand">untuk devi</div>
+    <div class="env" id="env" role="button" aria-label="buka surat" tabindex="0">
+      <div class="back"></div>
+      <div class="letter"><b>hai devi,</b></div>
+      <div class="front"></div>
+      <div class="flap"></div>
+      <div class="seal"></div>
+    </div>
+    <div class="hint">tap amplopnya</div>
   </section>
-  <nav id="icons"></nav>
 
-  <section class="win" id="w-status" data-w="340" data-h="390">
-    <div class="tb"><span class="t"><b>status</b> · presence</span><button class="x" aria-label="tutup"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-    <div class="bd">
-      <div class="lbl">current state</div>
-      <div class="big">i'm back.</div>
-      <p class="muted" style="margin:6px 0 14px">udah online lagi. tadi ngilang beberapa jam, barusan lagi agak hectic.</p>
-      <div class="card">
-        <div class="kv"><span>status</span><span class="acc">online</span></div>
-        <div class="kv"><span>channel</span><span>line</span></div>
-        <div class="kv"><span>last seen</span><span>beberapa jam lalu</span></div>
-        <div class="kv"><span>uptime (sejak kamu buka)</span><span id="up">00:00</span></div>
+  <section id="content">
+    <div class="wrap">
+      <div>
+        <article class="letterCard fade">
+          <div class="hi">hai devi,</div>
+          <h1>i'm back.</h1>
+          <p>sorry tadi ngilang beberapa jam, barusan lagi agak hectic.</p>
+          <div class="sig">— daffa</div>
+        </article>
+      </div>
+      <div>
+        <div class="sec fade" style="animation-delay:.25s"><h2>catatan kecil</h2><span id="cnt">tap buat buka · 0/3</span></div>
+        <div class="notes">
+          <div class="note fade" style="animation-delay:.35s"><div class="in"><div class="f"><span class="lab">soal aslab</span><small>tap</small></div><div class="k">aku ga pinter juga kok, meskipun jadi aslab.</div></div></div>
+          <div class="note fade" style="animation-delay:.45s"><div class="in"><div class="f"><span class="lab">rahasianya</span><small>tap</small></div><div class="k"><span>aku cuma manfaatin ai secara optimal pake <em>prompt</em> &amp; <em>agentic ai</em>-ku, termasuk bikin halaman kecil ini.</span></div></div></div>
+          <div class="note fade" style="animation-delay:.55s"><div class="in"><div class="f"><span class="lab">terakhir</span><small>tap</small></div><div class="k">lanjut ngobrol di line aja ya.</div></div></div>
+        </div>
       </div>
     </div>
-  </section>
-
-  <section class="win" id="w-log" data-w="380" data-h="470">
-    <div class="tb"><span class="t"><b>activity.log</b> · hari ini</span><button class="x" aria-label="tutup"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-    <div class="bd">
-      <div class="lbl">presence timeline</div>
-      <div class="bar"><div class="on" style="flex:1">online</div><div class="off">offline · beberapa jam</div><div class="on" style="flex:1">back</div></div>
-      <div class="tl">
-        <div class="ev g"><div class="ts">t-0</div><div class="tx">last seen. masih online.</div></div>
-        <div class="ev o"><div class="ts">t+?</div><div class="tx">offline. barusan lagi agak hectic, hp ga kepegang.</div></div>
-        <div class="ev"><div class="ts">event</div><div class="tx">chat dari devi masuk di line. belum kebales.</div></div>
-        <div class="ev g"><div class="ts">now</div><div class="tx">back online. <span class="acc">sorry tadi ngilang beberapa jam, barusan lagi agak hectic.</span></div></div>
-      </div>
-      <p class="muted mono" style="font-size:11.5px">// cuma beberapa jam tadi, bukan berhari-hari. tetep aja, sorry.</p>
+    <div class="fin fade" style="animation-delay:.7s">
+      <button class="btn" id="ok">oke, dimaafin</button>
+      <div id="thanks">makasih ya. sampai ketemu di chat.</div>
+      <button class="again" id="again">tutup suratnya lagi</button>
     </div>
-  </section>
-
-  <section class="win" id="w-term" data-w="520" data-h="380">
-    <div class="tb"><span class="t"><b>terminal</b> · devi@hai:~</span><button class="x" aria-label="tutup"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-    <div class="bd">
-      <div id="out"></div>
-      <div class="chips" id="chips"></div>
-      <form class="inrow" id="form" autocomplete="off"><span class="p">devi@hai:~$</span><input id="cmd" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send" placeholder="ketik 'help'"></form>
-    </div>
-  </section>
-
-  <section class="win" id="w-aslab" data-w="360" data-h="400">
-    <div class="tb"><span class="t"><b>aslab.md</b> · read-only</span><button class="x" aria-label="tutup"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-    <div class="bd">
-      <div class="lbl"># disclaimer</div>
-      <p style="font-size:16px;margin-bottom:14px">aku ga pinter juga kok, meskipun jadi aslab.</p>
-      <div class="card">
-        <div class="kv"><span>role</span><span>asisten lab</span></div>
-        <div class="kv"><span>iq</span><span>rata-rata, serius</span></div>
-        <div class="kv"><span>skill utama</span><span>baca error message</span></div>
-        <div class="kv"><span>rasa penasaran</span><span class="acc">tinggi</span></div>
-      </div>
-      <p class="muted" style="margin-top:12px;font-size:13px">jadi kalau keliatan pinter, itu biasanya bukan aku doang. cek app <b class="acc">agent</b> buat tau rahasianya.</p>
-    </div>
-  </section>
-
-  <section class="win" id="w-agent" data-w="420" data-h="470">
-    <div class="tb"><span class="t"><b>agent</b> · how this was made</span><button class="x" aria-label="tutup"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-    <div class="bd">
-      <div class="lbl">the honest version</div>
-      <p style="font-size:15px">aku cuma manfaatin ai secara optimal pake <span class="acc">prompt</span> &amp; <span class="acc">agentic ai</span>-ku.</p>
-      <div class="pipe"><div class="node" data-n="0">prompt</div><span class="arr">→</span><div class="node" data-n="1">plan</div><span class="arr">→</span><div class="node" data-n="2">tools</div><span class="arr">→</span><div class="node" data-n="3">output</div></div>
-      <div class="code"><span class="c"># prompt yang kurang lebih dipake</span>
-"bikin halaman buat bales chat devi.
- bilang sorry tadi ngilang beberapa jam.
- rapi, interaktif, jangan alay."</div>
-      <div style="margin-top:12px;display:flex;gap:8px;align-items:center"><button class="btn pri" id="run">run agent</button><span class="muted" style="font-size:12px">simulasi doang</span></div>
-      <div id="agOut"></div>
-    </div>
-  </section>
-
-  <section class="win" id="w-game" data-w="340" data-h="360">
-    <div class="tb"><span class="t"><b>ping.exe</b> · reaction test</span><button class="x" aria-label="tutup"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-    <div class="bd">
-      <p class="muted" style="font-size:13px;margin-bottom:10px">tunggu sampe kotaknya ijo, terus tap secepetnya.</p>
-      <div id="pad" class="wait">tap buat mulai</div>
-      <div class="row" style="margin-top:12px">
-        <div class="card"><div class="lbl">terakhir</div><div class="mono" id="gLast">-</div></div>
-        <div class="card"><div class="lbl">terbaik</div><div class="mono acc" id="gBest">-</div></div>
-      </div>
-      <p class="muted mono" id="gNote" style="font-size:11.5px;margin-top:10px"></p>
-    </div>
-  </section>
-
-  <section class="win" id="w-set" data-w="320" data-h="330">
-    <div class="tb"><span class="t"><b>settings</b></span><button class="x" aria-label="tutup"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-    <div class="bd">
-      <div class="tg"><div>partikel<small>titik-titik di background</small></div><button class="sw on" data-k="fx"></button></div>
-      <div class="tg"><div>grid<small>pola titik halus</small></div><button class="sw on" data-k="grid"></button></div>
-      <div class="tg"><div>aksen ungu<small>default-nya ijo</small></div><button class="sw" data-k="violet"></button></div>
-    </div>
-  </section>
-
-  <section class="win" id="w-msg" data-w="420" data-h="440">
-    <div class="tb"><span class="t"><b>pesan</b> · <span id="msgSt">0/4 terkumpul</span></span><button class="x" aria-label="tutup"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-    <div class="bd">
-      <div id="slots"></div>
-      <div id="final">
-        <div class="lbl">pesan lengkap</div>
-        <div id="finalTx"></div>
-        <div id="finalAct" style="margin-top:14px;display:none;gap:8px;flex-wrap:wrap"><button class="btn" id="replay">putar ulang</button></div>
-      </div>
-    </div>
+    <footer>dibikin pake prompt &amp; agentic ai, seperti yang tadi dibilang.</footer>
   </section>
 </main>
-
-<nav id="dock"></nav>
-<div id="toasts"></div>
-
 <script>
 (()=>{
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const mq=matchMedia('(max-width:760px)');const isM=()=>mq.matches;
-
-/* ---------- background ---------- */
-const cv=$('#fx'),cx=cv.getContext('2d');let W,H,P=[],dpr=Math.min(devicePixelRatio||1,2);
-function rs(){W=cv.width=innerWidth*dpr;H=cv.height=innerHeight*dpr;cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';const n=Math.min(55,Math.floor(innerWidth*innerHeight/16000));P=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25*dpr,vy:(Math.random()-.5)*.25*dpr}))}
-rs();addEventListener('resize',rs);
-function accRGB(){return document.body.classList.contains('violet')?'155,140,255':'60,207,126'}
-(function loop(){if(!document.body.classList.contains('nofx')){cx.clearRect(0,0,W,H);const c=accRGB(),D=120*dpr;
- for(const p of P){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;cx.fillStyle='rgba(200,210,220,.35)';cx.fillRect(p.x,p.y,1.4*dpr,1.4*dpr)}
- for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){const a=P[i],b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<D){cx.strokeStyle='rgba('+c+','+(1-d/D)*.18+')';cx.lineWidth=dpr*.6;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}}
- requestAnimationFrame(loop)})();
-
-/* ---------- clock / uptime ---------- */
-const t0=Date.now();const pad2=n=>String(n).padStart(2,'0');
-function tick(){const d=new Date();$('#clock').textContent=pad2(d.getHours())+':'+pad2(d.getMinutes());const s=Math.floor((Date.now()-t0)/1000);$('#up').textContent=pad2(Math.floor(s/60))+':'+pad2(s%60)}
-tick();setInterval(tick,1000);
-
-/* ---------- apps ---------- */
-const I={
- status:'<circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/>',
- log:'<path d="M4 6h16M4 12h10M4 18h13"/>',
- term:'<path d="M4 17l5-5-5-5M12 19h8"/>',
- aslab:'<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-9V3"/>',
- agent:'<rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M2 13h3M19 13h3"/>',
- game:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/>',
- set:'<path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/>',
- msg:'<path d="M4 5h16v11H9l-5 4z"/>',
- home:'<path d="M4 11l8-7 8 7v9H4z"/>'
-};
-const APPS=[
- ['status','status','lagi online ga?'],['log','activity','timeline hari ini'],['term','terminal','ketik command'],['aslab','aslab.md','disclaimer'],
- ['agent','agent','cara bikinnya'],['game','ping.exe','mini game'],['set','settings','atur tampilan'],['msg','pesan','hasil kumpulan']];
-const svg=k=>'<svg viewBox="0 0 24 24">'+I[k]+'</svg>';
-$('#icons').innerHTML=APPS.map(([k,n,d])=>`<button class="ico${['set','game','msg'].includes(k)?'':' new'}" data-app="${k}"><span class="bx">${svg(k)}<b></b></span><span><span class="nm">${n}</span><span class="ds">${d}</span></span></button>`).join('');
-$('#dock').innerHTML=`<button class="dk" id="dkHome" aria-label="home">${svg('home')}</button>`+APPS.map(([k,n])=>`<button class="dk" data-app="${k}" aria-label="${n}">${svg(k)}<span class="tt">${n}</span></button>`).join('');
-$$('[data-app]').forEach(b=>b.addEventListener('click',()=>openW(b.dataset.app)));
-$('#dkHome').onclick=()=>{stack=[];render()};
-$('#prog').onclick=()=>openW('msg');
-
-/* ---------- window manager ---------- */
-let z=10,stack=[];
-const POS={status:[250,40],log:[560,70],term:[300,300],aslab:[620,230],agent:[480,110],game:[860,300],set:[900,280],msg:[420,90]};
-function place(w,id){const dw=$('#desk').clientWidth,dh=$('#desk').clientHeight;const ww=Math.min(+w.dataset.w,dw-24),wh=Math.min(+w.dataset.h,dh-90);
- let [x,y]=POS[id];x=Math.max(12,Math.min(x*(dw/1280),dw-ww-12));y=Math.max(12,Math.min(y,dh-wh-80));
- Object.assign(w.style,{width:ww+'px',height:wh+'px',left:x+'px',top:y+'px'});w.dataset.placed=1}
-function openW(id){const w=$('#w-'+id);if(!w)return;
- if(!w.classList.contains('open')){if(!isM()&&!w.dataset.placed)place(w,id);w.classList.add('open');onOpen(id)}
- stack=stack.filter(s=>s!==id);stack.push(id);render();
- const ic=$(`.ico[data-app="${id}"]`);ic&&ic.classList.remove('new')}
-function closeW(id){$('#w-'+id).classList.remove('open');stack=stack.filter(s=>s!==id);render()}
-function render(){const top=stack[stack.length-1];
- $$('.win').forEach(w=>{const id=w.id.slice(2);const i=stack.indexOf(id);w.classList.toggle('focus',id===top);w.classList.toggle('sheet',id===top);if(i>=0)w.style.zIndex=10+i;if(i<0)w.classList.remove('open')});
- $$('.dk[data-app]').forEach(d=>{d.classList.toggle('open',stack.includes(d.dataset.app));d.classList.toggle('act',d.dataset.app===top)});
- $('#dkHome').classList.toggle('act',!top)}
-$$('.win').forEach(w=>{const id=w.id.slice(2);
- w.querySelector('.x').addEventListener('click',e=>{e.stopPropagation();closeW(id)});
- w.addEventListener('pointerdown',()=>{if(stack[stack.length-1]!==id){stack=stack.filter(s=>s!==id);stack.push(id);render()}});
- const tb=w.querySelector('.tb');let sx,sy,ox,oy,drag=false;
- tb.addEventListener('pointerdown',e=>{if(isM()||e.target.closest('.x'))return;drag=true;sx=e.clientX;sy=e.clientY;ox=w.offsetLeft;oy=w.offsetTop;tb.setPointerCapture(e.pointerId)});
- tb.addEventListener('pointermove',e=>{if(!drag)return;const dw=$('#desk').clientWidth,dh=$('#desk').clientHeight;
-  w.style.left=Math.max(-w.offsetWidth+80,Math.min(dw-80,ox+e.clientX-sx))+'px';w.style.top=Math.max(0,Math.min(dh-40,oy+e.clientY-sy))+'px'});
- tb.addEventListener('pointerup',()=>drag=false);tb.addEventListener('pointercancel',()=>drag=false)});
-mq.addEventListener('change',()=>{$$('.win').forEach(w=>{if(!isM()&&w.classList.contains('open'))place(w,w.id.slice(2))});render()});
-
-/* ---------- pieces ---------- */
-const PIECES={back:["i'm back.",'buka app status'],sorry:['sorry tadi ngilang beberapa jam, barusan lagi agak hectic.','cek activity log'],aslab:['aku ga pinter juga kok, meskipun jadi aslab.','baca aslab.md, atau ketik about-aslab'],ai:['aku cuma manfaatin ai secara optimal pake prompt & agentic ai-ku.','buka app agent, atau ketik ai']};
-const ORDER=['back','sorry','aslab','ai'];const found=new Set();
-function renderSlots(){$('#slots').innerHTML=ORDER.map((k,i)=>found.has(k)?`<div class="slot ok"><span class="n">0${i+1}</span><span class="v">${PIECES[k][0]}</span></div>`:`<div class="slot lock"><span class="n">0${i+1}</span><span class="v">terkunci · hint: ${PIECES[k][1]}</span></div>`).join('');
- $('#msgSt').textContent=found.size+'/4 terkumpul';$('#progN').textContent=found.size+'/4';$$('#prog .seg i').forEach((e,i)=>e.classList.toggle('on',i<found.size))}
-function gain(k){if(found.has(k))return;found.add(k);renderSlots();
- toast('potongan '+found.size+'/4',PIECES[k][0]);
- if(found.size===4){setTimeout(()=>toast('pesan lengkap kebuka','buka app pesan, atau tap 4/4 di atas.',()=>openW('msg')),900);$(`.ico[data-app="msg"]`).classList.add('new');unlockFinal()}}
-renderSlots();
-let typed=false,typer;
-function unlockFinal(){$('#final').style.display='block';$('#slots').style.display='none';if($('#w-msg').classList.contains('open'))typeFinal()}
-const FINAL="i'm back. sorry tadi ngilang beberapa jam, barusan lagi agak hectic.\n\naku ga pinter juga kok, meskipun jadi aslab. aku cuma manfaatin ai secara optimal pake prompt & agentic ai-ku. halaman ini salah satu hasilnya.\n\nanyway, makasih udah mau buka sampe sini. lanjut ngobrol di line aja ya.";
-function typeFinal(){typed=true;clearInterval(typer);let i=0;const el=$('#finalTx');$('#finalAct').style.display='none';
- typer=setInterval(()=>{i+=2;el.innerHTML=esc(FINAL.slice(0,i))+'<span class="cur"></span>';if(i>=FINAL.length){clearInterval(typer);el.innerHTML=esc(FINAL)+'<span class="cur"></span>';$('#finalAct').style.display='flex'}},22)}
-$('#replay').onclick=typeFinal;
-const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
-
-function onOpen(id){
- if(id==='status')setTimeout(()=>gain('back'),600);
- if(id==='log'){$$('.ev').forEach((e,i)=>{e.classList.remove('in');setTimeout(()=>e.classList.add('in'),200+i*380)});setTimeout(()=>gain('sorry'),200+4*380)}
- if(id==='aslab')setTimeout(()=>gain('aslab'),600);
- if(id==='agent')setTimeout(()=>gain('ai'),900);
- if(id==='term'&&!isM())setTimeout(()=>$('#cmd').focus({preventScroll:true}),50);
- if(id==='msg'&&found.size===4&&!typed)typeFinal();
-}
-
-/* ---------- toast ---------- */
-function toast(a,b,fn){const t=document.createElement('div');t.className='toast';t.innerHTML=`<div class="lbl">${esc(a)}</div>${esc(b)}`;if(fn){t.style.cursor='pointer';t.onclick=fn}
- $('#toasts').appendChild(t);while($('#toasts').children.length>3)$('#toasts').firstChild.remove();setTimeout(()=>{t.classList.add('out');setTimeout(()=>t.remove(),400)},3800)}
-
-/* ---------- terminal ---------- */
-const out=$('#out');
-function print(h,c){const d=document.createElement('div');if(c)d.className=c;d.innerHTML=h;out.appendChild(d);out.scrollTop=out.scrollHeight}
-const CMDS={
- help:()=>'command yang ada:\n  whoami       siapa yang bikin ini\n  status       lagi online ga\n  why-late     kenapa telat bales\n  about-aslab  soal jadi aslab\n  ai           rahasia di balik ini\n  prompt       prompt yang dipake\n  ls           daftar app\n  open &lt;app&gt;   buka app (mis. open log)\n  sudo maafin  coba aja\n  date, clear',
- whoami:()=>'daffa. aslab. manusia biasa yang kebetulan rajin nulis prompt.',
- status:()=>{gain('back');return '<span class="p">● online</span>\ni\'m back. baru balik setelah tadi ngilang beberapa jam.'},
- 'why-late':()=>{gain('sorry');return 'barusan lagi agak hectic, jadi ga sempet pegang hp.\nintinya: sorry tadi ngilang beberapa jam.\n<span class="m">// beberapa jam ya, bukan berhari-hari.</span>'},
- 'about-aslab':()=>{gain('aslab');return 'aku ga pinter juga kok, meskipun jadi aslab.\n<span class="m">// skill utama: baca error message pelan-pelan.</span>'},
- ai:()=>{gain('ai');return 'aku cuma manfaatin ai secara optimal pake prompt &amp; agentic ai-ku.\nprompt yang jelas → agent nyusun rencana → pake tools → jadi.\n<span class="m">// termasuk halaman yang lagi kamu buka ini.</span>'},
- prompt:()=>'"bikin halaman buat bales chat devi.\n bilang sorry tadi ngilang beberapa jam.\n rapi, interaktif, jangan alay."',
- ls:()=>APPS.map(a=>a[0]).join('  '),
- date:()=>new Date().toLocaleString('id-ID').toLowerCase(),
- clear:()=>{out.innerHTML='';return null},
- 'sudo maafin':()=>'<span class="e">sudo: permission denied.</span>\nmaaf itu diminta, bukan dipaksa. jadi: maaf ya.\n<span class="m">// keputusan tetep di kamu.</span>',
- sudo:()=>'sudo apa nih? coba: sudo maafin',
- maafin:()=>'request terkirim. no pressure.',
- exit:()=>'ga bisa exit dari sini. tapi tab-nya bisa ditutup kok, santai.',
- hai:()=>'hai juga.',halo:()=>'halo juga.',
-};
-const used=new Set();
-function run(raw){const c=raw.trim().toLowerCase().replace(/\s+/g,' ');if(!c)return;print('<span class="p">devi@hai:~$</span> '+esc(c));hist.push(c);hi=hist.length;
- let r;if(c.startsWith('open ')){const a=c.slice(5).replace('.md','').replace('.exe','');const m={terminal:'term',settings:'set',pesan:'msg',activity:'log',ping:'game'}[a]||a;
-  if($('#w-'+m)){openW(m);r='membuka '+esc(a)+'...'}else r='<span class="e">app ga ketemu: '+esc(a)+'</span>. coba ls'}
- else if(CMDS[c])r=CMDS[c]();else r='<span class="e">command not found: '+esc(c)+'</span>. coba <span class="p">help</span>';
- if(r!=null)print(r);used.add(c);$$('.chip').forEach(x=>x.classList.toggle('used',used.has(x.textContent)))}
-const hist=[];let hi=0;
-$('#form').addEventListener('submit',e=>{e.preventDefault();run($('#cmd').value);$('#cmd').value=''});
-$('#cmd').addEventListener('keydown',e=>{if(e.key==='ArrowUp'&&hi>0){hi--;$('#cmd').value=hist[hi];e.preventDefault()}if(e.key==='ArrowDown'){hi=Math.min(hist.length,hi+1);$('#cmd').value=hist[hi]||''}});
-$('#chips').innerHTML=['help','whoami','status','why-late','about-aslab','ai','prompt','sudo maafin','open log','clear'].map(c=>`<button class="chip" type="button">${c}</button>`).join('');
-$$('.chip').forEach(c=>c.onclick=()=>run(c.textContent));
-print('<span class="m">hai.os terminal · ketik</span> <span class="p">help</span> <span class="m">atau tap command di bawah.</span>');
-
-/* ---------- agent sim ---------- */
-let running=false;
-$('#run').onclick=async()=>{if(running)return;running=true;const ns=$$('.node'),o=$('#agOut');ns.forEach(n=>n.classList.remove('on'));
- const steps=['baca prompt...','nyusun rencana: layout, copy, interaksi...','pake tools: nulis kode, test di hp & laptop...','selesai. hasilnya: halaman ini.'];
- for(let i=0;i<4;i++){ns[i].classList.add('on');o.textContent='> '+steps[i];await new Promise(r=>setTimeout(r,750))}
- o.innerHTML='> '+steps[3]+' <span class="acc">✓</span>';gain('ai');running=false};
-
-/* ---------- game ---------- */
-const padEl=$('#pad');let gs='idle',gt,gStart,best=null;
-function gReset(txt){gs='idle';padEl.className='wait';padEl.textContent=txt||'tap buat mulai'}
-padEl.addEventListener('pointerdown',e=>{e.preventDefault();
- if(gs==='idle'){gs='wait';padEl.className='wait';padEl.textContent='tunggu...';gt=setTimeout(()=>{gs='go';padEl.className='go';padEl.textContent='tap!';gStart=performance.now()},1200+Math.random()*2200)}
- else if(gs==='wait'){clearTimeout(gt);gReset('kecepetan. tap buat ulang');$('#gNote').textContent='// sabar dikit, kayak nungguin aku bales.'}
- else if(gs==='go'){const ms=Math.round(performance.now()-gStart);$('#gLast').textContent=ms+' ms';if(best===null||ms<best){best=ms;$('#gBest').textContent=ms+' ms'}
-  $('#gNote').textContent=ms<250?'// cepet banget. jauh lebih cepet dari aku bales chat tadi.':ms<400?'// lumayan. masih lebih cepet dari aku bales chat tadi.':'// santai juga. tapi tetep lebih cepet dari aku tadi.';
-  gReset(ms+' ms · tap buat ulang')}});
-
-/* ---------- settings ---------- */
-$$('.sw').forEach(s=>s.onclick=()=>{s.classList.toggle('on');const on=s.classList.contains('on'),k=s.dataset.k;
- if(k==='fx'){document.body.classList.toggle('nofx',!on);if(!on)cx.clearRect(0,0,W,H)}if(k==='grid')document.body.classList.toggle('nogrid',!on);if(k==='violet')document.body.classList.toggle('violet',on)});
-
-/* ---------- boot ---------- */
-const BL=[['hai.os v2','k'],['mounting /home/daffa ... ok'],['checking presence ... offline beberapa jam'],['syncing chat (line) ... 1 belum dibales'],['loading apps ... 8 ok'],['ready.','k']];
-let booted=false;
-async function boot(){const el=$('#bootlog');for(const [t,c] of BL){if(booted)return;const d=document.createElement('div');if(c)d.className=c;d.textContent='> '+t;el.appendChild(d);await new Promise(r=>setTimeout(r,260))}setTimeout(endBoot,450)}
-function endBoot(){if(booted)return;booted=true;$('#boot').classList.add('off');if(!isM())setTimeout(()=>openW('term'),500)}
-$('#boot').addEventListener('click',endBoot);boot();
-render();
+const $=s=>document.querySelector(s);
+const env=$('#env'),stage=$('#stage'),content=$('#content');
+let opened=false;
+function openEnv(){if(opened)return;opened=true;env.classList.add('open');
+ setTimeout(()=>{stage.classList.add('gone');content.classList.add('show');scrollTo(0,0)},1300)}
+env.addEventListener('click',openEnv);
+env.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openEnv()}});
+const seen=new Set();
+document.querySelectorAll('.note').forEach((n,i)=>n.addEventListener('click',()=>{n.classList.toggle('flip');seen.add(i);
+ $('#cnt').textContent=seen.size<3?'tap buat buka · '+seen.size+'/3':'semua udah dibuka'}));
+$('#ok').addEventListener('click',e=>{const b=e.currentTarget;if(b.classList.contains('done'))return;b.classList.add('done');b.textContent='dimaafin';$('#thanks').classList.add('show')});
+$('#again').addEventListener('click',()=>{content.classList.remove('show');stage.classList.remove('gone');env.classList.remove('open');opened=false;
+ document.querySelectorAll('.note').forEach(n=>n.classList.remove('flip'));seen.clear();$('#cnt').textContent='tap buat buka · 0/3';
+ const b=$('#ok');b.classList.remove('done');b.textContent='oke, dimaafin';$('#thanks').classList.remove('show');
+ content.querySelectorAll('.fade').forEach(el=>{el.style.animation='none';el.offsetHeight;el.style.animation=''});scrollTo(0,0)});
 })();
 </script>
 </body>
